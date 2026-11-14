@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b14">
+<title>HOP BUILDER</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090b14;color:#fff;font-family:Arial,sans-serif}
+header{padding:20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #252941}
+.logo{font-size:22px;font-weight:800;color:#a78bfa}
+main{max-width:900px;margin:auto;padding:28px 20px}
+h1{font-size:34px;margin-bottom:10px}
+p{color:#aab1c5;line-height:1.5}
+.panel{background:#171b2d;border:1px solid #39345c;border-radius:18px;padding:20px;margin-top:24px}
+textarea{width:100%;min-height:130px;background:#0d1120;border:1px solid #39345c;border-radius:12px;padding:15px;color:white;font-size:16px;resize:vertical}
+button{background:#8758f5;color:white;border:0;border-radius:12px;padding:13px 20px;font-size:15px;font-weight:bold;cursor:pointer}
+.create{width:100%;margin-top:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:18px}
+.card{background:#171b2d;border:1px solid #292e46;border-radius:14px;padding:18px}
+.card h3{margin:5px 0 10px}
+.small{font-size:13px;color:#9da7c0}
+#status{margin-top:15px;color:#c4b5fd}
+@media(max-width:600px){h1{font-size:28px}main{padding:22px 15px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">✦ HOP BUILDER</div>
+  <div>👤 Account</div>
+</header>
+<main>
+  <h1>Build anything with AI.</h1>
+  <p>Create your own apps for Android and iPhone. Start with your idea.</p>
+
+  <section class="panel">
+    <h3>What do you want to build?</h3>
+    <textarea id="idea" placeholder="Describe your app idea here..."></textarea>
+    <button class="create" onclick="createProject()">✦ Create New App</button>
+    <div id="status"></div>
+  </section>
+
+  <h2>My Projects</h2>
+  <div class="cards" id="projects">
+    <div class="card">
+      <h3>🚀 Welcome Project</h3>
+      <div class="small">Your first HOP BUILDER project</div>
+    </div>
+    <div class="card">
+      <h3>📱 Mobile App</h3>
+      <div class="small">Android and iPhone projects</div>
+    </div>
+  </div>
+</main>
+<script>
+function createProject(){
+  const idea=document.getElementById('idea').value.trim();
+  const status=document.getElementById('status');
+  if(!idea){status.textContent='Please describe your app idea first.';return;}
+  const card=document.createElement('div');
+  card.className='card';
+  const title=document.createElement('h3');
+  title.textContent='📱 New Project';
+  const description=document.createElement('div');
+  description.className='small';
+  description.textContent=idea;
+  card.append(title,description);
+  document.getElementById('projects').appendChild(card);
+  status.textContent='Project added to your local preview!';
+  document.getElementById('idea').value='';
+}
+</script>
+</body>
+</html>
