@@ -73,6 +73,9 @@ function createProject(){
   card.append(title,description);card.style.cursor = 'pointer';
 card.onclick = function() {
 document.getElementById('idea').value = idea;document.getElementById('idea').focus();
+  
+alert('Projekti u hap: ' + idea);
+
 };
   document.getElementById('projects').appendChild(card);
   status.textContent='Project added to your local preview!';
