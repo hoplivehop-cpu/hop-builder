@@ -70,7 +70,10 @@ function createProject(){
   const description=document.createElement('div');
   description.className='small';
   description.textContent=idea;
-  card.append(title,description);
+  card.append(title,description);card.style.cursor = 'pointer';
+card.onclick = function() {
+alert('Projekti: ' + idea);
+};
   document.getElementById('projects').appendChild(card);
   status.textContent='Project added to your local preview!';
   document.getElementById('idea').value='';
