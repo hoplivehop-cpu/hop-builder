@@ -80,7 +80,10 @@ alert('Projekti u hap: ' + idea);
   document.getElementById('projects').appendChild(card);
   status.textContent='Project added to your local preview!';
   document.getElementById('idea').value='';
-}
+}card.onclick = function() {
+  document.getElementById('idea').value = idea;
+  alert('Projekti u hap: ' + idea);
+};
 </script>
 </body>
 </html>
